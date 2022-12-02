@@ -1,0 +1,172 @@
+{% extends 'sites/base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-bd">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <address>
+                            <strong>INSTITUT INTERNATIONAL POLYTECHNIQUE DES ELITES D'ABIDJAN</strong><br>
+                            Cocody Rivera2 <br>
+                            secretariat@iipea.com<br>
+                            <abbr title="Phone">P:</abbr> 07 08 08 87 87
+                        </address>
+                        <address>
+                            <strong>Rapport de consultation</strong><br>
+                            <strong>Medecin : {{consultation.docteur}} </strong><br>
+                            <strong>Contact : {{consultation.docteur.telephone}} </strong><br>
+                            <a href="mailto:#">{{consultation.docteur.user.username}}</a>
+                        </address>
+                    </div>
+                    <div class="col-sm-6 text-left">
+                        <h1 class="m-t-0">Id Patient #{{consultation.patient.mat}}</h1>
+                        <div>Date : {{consultation.created}}</div>
+                        <strong>Patient : {{consultation.patient}} </strong><br>
+                        <strong>Sexe : {{consultation.patient.sexe}} </strong><br>
+                        <strong>Contcat : {{consultation.patient.telephone}} </strong><br>
+
+
+                    </div>
+                </div>
+                <hr>
+                <div class="table-responsive m-b-20">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>IDENTIFICATION</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>MOTIF DE LA CONSULTATION</strong>
+                                    </div>
+                                    <small>{{ consultation.motif_de_la_consultation}}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>DEBUT DE LA MALADIE</strong>
+                                    </div>
+                                    <small>{{ consultation.debut_de_la_maladie}}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>SIGNE DE LA MALADIE</strong>
+                                    </div>
+                                    <small>{{ consultation.signe_de_la_maladie}}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>TRAITEMENT RECU</strong>
+                                    </div>
+                                    <small>{{ consultation.traitement_recu}}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>EVALUATION</strong>
+                                    </div>
+                                    <small>{{ consultation.evaluation}}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>INFORMATIONS DE BASE</strong>
+                                    </div>
+                                    <small>Tension Arterielle : {{ consultation.tension_arterielle}} mmgh</small><br>
+                                    <small>Pouls : {{ consultation.tension_arterielle}} Bpm</small><br>
+                                    <small>SAO2 : {{ consultation.sao2}} %</small><br>
+                                    <small>Temperature : {{ consultation.sao2}} °C</small><br>
+                                    <small>Score De Glasow : {{ consultation.score_de_glasow}}</small><br>
+                                    <small>Conjonctives : {{ consultation.score_de_glasow}}</small><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Résume</strong>
+                                    </div>
+                                    <small>{{ consultation.resume | safe }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Hypothèse Diagnostique</strong>
+                                    </div>
+                                    <small>{{ consultation.hypothese_diagnostique | safe }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Bilan Demandés</strong>
+                                    </div>
+                                    <small>{{ consultation.bilan_demande | safe }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Diagnostique</strong>
+                                    </div>
+                                    <small>{{ consultation.diagnostic | safe }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Traitement</strong>
+                                    </div>
+                                    <small>{{ consultation.traitement | safe }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Évaluation</strong>
+                                    </div>
+                                    <small>{{ consultation.evaluation | safe }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <strong>Prochain Rendez-Vous</strong>
+                                    </div>
+                                    <small>{{ consultation.rendez_vous }}</small>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-left">
+                <button type="button" class="btn btn-info" onclick="window.print()"><span class="fa fa-print"></span>
+                    Imprimer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

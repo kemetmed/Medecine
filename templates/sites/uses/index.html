@@ -1,0 +1,124 @@
+{% extends 'sites/base/base.html' %}
+{% load static %}
+{% block content %}
+    
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                            <div class="panel panel-bd cardbox">
+                                <div class="panel-body">
+                                    <div class="statistic-box">
+                                        <h2><span class="count-number">{{doctors}}</span>
+                                        </h2>
+                                    </div>
+                                    <div class="items pull-left">
+                                        <i class="fa fa-users fa-2x"></i>
+                                        <h4>Docteur(s) </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                            <div class="panel panel-bd cardbox">
+                                <div class="panel-body">
+                                    <div class="statistic-box">
+                                        <h2><span class="count-number">{{patient}}</span>
+                                        </h2>
+                                    </div>
+                                    <div class="items pull-left">
+                                        <i class="fa fa-users fa-2x"></i>
+                                        <h4>Patient(s)</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                            <div class="panel panel-bd cardbox">
+                                <div class="panel-body">
+                                    <div class="statistic-box">
+                                        <h2><span class="count-number">{{consultations}}</span>
+                                        </h2>
+                                    </div>
+                                    <div class="items pull-left">
+                                        <i class="fa fa-user-circle fa-2x"></i>
+                                        <h4>Consultation(s)</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                            <div class="panel panel-bd cardbox">
+                                <div class="panel-body">
+                                    <div class="statistic-box">
+                                        <h2><span class="count-number">9</span>
+                                        </h2>
+                                    </div>
+                                    <div class="items pull-left">
+                                        <i class="fa fa-users fa-2x"></i>
+                                        <h4>Rendez-vous</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                <div class="row">
+                        <div class="col-md">
+                            <div class="panel panel-bd lobidrag">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        <h4>Liste des patients </h4>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table id="dataTableExample2" class="table table-bordered table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Numero</th>
+                                                    <th>Nom</th>
+                                                    <th>Prénoms</th>
+                                                    <th>Age</th>
+                                                    <th>Sexe</th>
+                                                    <th>Contact</th>
+                                                  
+                                                    <th>Groupe Sanguin</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                              
+                                              {% for p in patients  %}
+
+                                              <tr>  
+                                                <td>
+                                                   
+                                                    <label>{{p.mat}}</label>   
+                                                </td>
+                                                
+                                                <td>{{p.nom}}</td>
+                                                <td>{{p.prenom}}</td>
+                                                <td>{{p.age}}</td>
+                                                <td>{{p.sexe}}</td>
+                                                <td>{{p.telephone}}</td>
+                                                <td>{{p.groupe_sanguin}}</td>
+                                                <td>
+                                                   <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ordine"><i class="fa fa-pencil"></i>
+                                                   Profile</button>
+
+                                                   <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#ordine"><i class="fa fa-pencil"></i>
+                                                    Consultation</button>
+                                               </td>
+                                           </tr>
+                                                
+                                              {% endfor %}
+                                                
+                                          
+                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div> 
+                    <!-- /.row -->
+
+{% endblock content %}
